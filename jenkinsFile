@@ -1,9 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-
-    }
 
     stages {
         stage('checkout') {
@@ -21,9 +18,6 @@ pipeline {
                  bat "python -m pytest tests/test_api.py"
             }
 }
-         stage('result') {
-
-            }
 
     }
 }
