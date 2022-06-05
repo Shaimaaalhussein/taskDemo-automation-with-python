@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    tools {
+
+    }
+
+    stages {
+        stage('checkout') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/Shaimaaalhussein/taskDemo-automation-with-python.git'
+
+            }
+            }
+        stage('Build') {
+            steps {
+
+
+                // To run Maven on a Windows agent, use
+                 bat "python -m pytest tests/test_api.py"
+            }
+}
+         stage('result') {
+
+            }
+
+    }
+}

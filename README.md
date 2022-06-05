@@ -11,26 +11,26 @@ Follow the instructions in this README to install software requirements and run 
 
 ## Python Setup
 
-This prject requires Python 3.10.0
-You can download the latest Python version from [Python.org](https://www.python.org/downloads/).
+* This project requires Python 3.10.4
+* You can download the latest Python version from [Python.org](https://www.python.org/downloads/).
 
-You should also have a Python editor/IDE of your choice.
+* You should also have a Python editor/IDE of your choice.
 was using this [PyCharm](https://www.jetbrains.com/pycharm/).
 
-You will also need [Git](https://git-scm.com/) to copy this project code.
+* You will also need [Git](https://git-scm.com/) to copy this project code.
 If you are new to Git, [try learning the basics](https://try.github.io/).
 
 ## WebDriver Setup
 
-For Web UI testing, you will need to install the latest versions of
+* For Web UI testing, you will need to install the latest versions of
 [Google Chrome](https://www.google.com/chrome/).
-You can use other browsers with Selenium WebDriver, but the project will use Chrome.
+* You can use other browsers with Selenium WebDriver, but the project will use Chrome.
 
 ## WebDriver and Selenium Setup 
 
-Open command line 
-Install selenium using "Python -m pip install -U Selenium".
-Install webdriver manager using "pip install webdriver-manager". 
+* Open command line 
+* Install selenium using "Python -m pip install -U Selenium".
+* Install webdriver manager using "pip install webdriver-manager". 
 
 ## Pytest Setup 
 
@@ -38,14 +38,24 @@ Install pytest using "pip install pytest".
 
 ## Requests Setup 
 
-This for api requests.
-Install requests using "pip install requests".
-Install json path 'pip install jsonpath-ng'
+* This for api requests.
+* Install requests using "pip install requests".
+* Install json path 'pip install jsonpath-ng'
 
 ## Html report setup
 
 pip install pytest-html.
 
+## Appium setup
+
+* Setup the JDK bin folder path in your system’s environment variable.
+* Install android SDK >>add ANDROID_HOME in path
+* Install appium server GUI v1.22.
+* Install nodeJs.
+* open appium server adding
+  * HOST =127.0.0.1
+  * PORT =4723
+* Then start server
 
 ## Project Setup
 
@@ -59,17 +69,17 @@ pip install pytest-html.
 
 ## Repository Branching
 
-The `master` branch contains the code for the project's starting point.
-The project is basically empty in the `master` branch.
+* The `master` branch contains the code for the project's starting point.
+* The project is basically empty in the `master` branch.
 
-If you want to code along with the course, then create a branch for your work off the `master` branch.
+* If you want to code along with the course, then create a branch for your work off the `master` branch.
 To create your own branch named `project/develop`, run:
 
-    > git checkout master
-    > git branch project/develop
-    > git checkout project/develop
+    * > git checkout master
+    * > git branch project/develop
+    * > git checkout project/develop
 
-The `tests/*` contain the completed code for project parts.
+* The `tests/*` contain the completed code for project parts.
 
 * `tests/test_web.py`
 * `tests/test_mobile.py`
@@ -109,28 +119,33 @@ import configparser
     "appPackage": "com.swaglabsmobileapp",
     "appActivity": "com.swaglabsmobileapp.MainActivity"
  }
- with open('capablity.json', 'w') as f:
+
+  with open('capablity.json', 'w') as f:
     json.dump(desiredCapablities, f)
 
 
 ## Read from configurations files
 
  import configparser
+ 
  import json
  # Method to read config file settings
 
  def read_config():
+
     config = configparser.ConfigParser()
     config.read('configurations.ini')
     return config
  
  # Method to get web URL
  def get_web_url():
+
     config=read_config()
     webURL = config['WebSettings']['webUrl']
     return webURL
  # Method to get mobile app
  def get_mobile_cap():
+
     with open('capablity.json', 'r') as f:
         config = json.load(f)
     return config
