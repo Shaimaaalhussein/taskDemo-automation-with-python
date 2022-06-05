@@ -196,3 +196,42 @@ When the tests run, notice how 3 browser instances open at once - one per test.
 
 
 
+## Run with jenkins
+
+* Open jenkins
+* Create a new pipline job
+* In pipline section :
+
+      1.Change definition to be "Pipline script from SCM".
+      2.Choose SCM to be "Git".
+      3.Put Repository URL "https://github.com/Shaimaaalhussein/taskDemo-automation-with-python.git"
+      4.Add in Script Path "jenkinsFile"
+
+## Jenkins file pipeline
+
+* Jenkins file will be as the following:
+
+pipeline {
+   
+ agent any
+
+    stages {
+        stage('checkout') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/Shaimaaalhussein/taskDemo-automation-with-python.git'
+
+            }
+            }
+        stage('Build') {
+            steps {
+
+
+                // To run Python test on a Windows agent, use
+                 bat "python -m pytest tests/test_api.py"
+            }}}
+}
+
+* To generate Html report modify jenkins file to  bat "python -m pytest tests/test_api.py --html=report.html"
+* For parallel execution modify jenkins file to  bat "python -m pytest tests/test_web.py -n 3"
+* For run all cases modify jenkins file to bat "python -m pytest --html=report.html"

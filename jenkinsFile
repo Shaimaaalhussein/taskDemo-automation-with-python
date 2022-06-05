@@ -1,7 +1,6 @@
 pipeline {
     agent any
 
-
     stages {
         stage('checkout') {
             steps {
@@ -14,8 +13,8 @@ pipeline {
             steps {
 
 
-                // To run Maven on a Windows agent, use
-                 bat "python -m pytest tests/test_api.py"
+                // To run Python test on a Windows agent, use
+                 bat "python -m pytest tests/test_api.py --html=report.html"
             }
 }
 
